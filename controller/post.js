@@ -21,8 +21,8 @@ export const UpdatePost = async (req, res) => {
         .json({ message: "Nội dung bài viết không được để trống" });
     }
     const { _id } = req.params;
-    const newPost = await Post.findOneAndUpdate(
-      { _id },
+    const newPost = await Post.findByIdAndUpdate(
+      _id,
       { content, updatedAt: new Date() },
       { new: true },
     );    
